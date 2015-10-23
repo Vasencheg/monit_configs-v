@@ -1,5 +1,5 @@
 check process elasticsearch
-   with pidfile /var/run/cc-elasticsearch.pid
+   with pidfile /etc/init.d/cc_elasticsearch.pid
    group elasticsearch
    start program = "/etc/init.d/elasticsearch start"
    stop  program = "/etc/init.d/elasticsearch stop"

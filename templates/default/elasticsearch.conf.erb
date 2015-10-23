@@ -1,7 +1,7 @@
 check process elasticsearch
-   with pidfile /etc/init.d/cc_elasticsearch.pid
+   with pidfile /etc/init.d/elasticsearch.pid
    group elasticsearch
-   start program = "/etc/init.d/cc_elasticsearch start"
-   stop  program = "/etc/init.d/cc_elasticsearch stop"
+   start program = "/etc/init.d/elasticsearch start"
+   stop  program = "/etc/init.d/elasticsearch stop"
    if failed host 127.0.0.1 port 9300 then restart
    if 3 restarts within 6 cycles then timeout

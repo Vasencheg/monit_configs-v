@@ -2,7 +2,7 @@ name              "monit_configs-cc"
 maintainer        "Chad Wilken"
 maintainer_email  "chad@companycam.com"
 description       "Monit configs for server components"
-version           "0.1.8"
+version           "0.1.9"
 
 recipe "monit_configs-cc::elasticsearch", "Monit config for elasticsearch"
 recipe "monit_configs-cc::memcached", "Monit config for memcached"

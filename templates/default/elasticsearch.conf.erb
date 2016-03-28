@@ -4,8 +4,12 @@ check process elasticsearch
   <% else %>
     with pidfile /usr/local/var/run/elasticsearch.pid
   <% end %>
-   group elasticsearch
-   start program = "/etc/init.d/elasticsearch start"
-   stop  program = "/etc/init.d/elasticsearch stop"
-   if failed host 127.0.0.1 port 9200 then restart
-   if 3 restarts within 6 cycles then timeout
+  group elasticsearch
+  start program = "/etc/init.d/elasticsearch start"
+  stop  program = "/etc/init.d/elasticsearch stop"
+  <% if node['monit']['elasticsearch']['host'] %>
+  if failed host <%= node['monit']['elasticsearch']['host'] %> port 9200 then restart
+  <% else %>
+  if failed host 127.0.0.1 port 9200 then restart
+  <% end %>
+  if 3 restarts within 6 cycles then timeout

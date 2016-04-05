@@ -1,9 +1,8 @@
-check process elasticsearch
-  <% if node['monit']['elasticsearch']['pidfile'] %>
-    with pidfile <%= node['monit']['elasticsearch']['pidfile'] %>
-  <% else %>
-    with pidfile /usr/local/var/run/elasticsearch.pid
-  <% end %>
+<% if node['monit']['elasticsearch']['pidfile'] %>
+check process elasticsearch with pidfile <%= node['monit']['elasticsearch']['pidfile'] %>
+<% else %>
+check process elasticsearch with pidfile /usr/local/var/run/elasticsearch.pid
+<% end %>
   group elasticsearch
   start program = "/etc/init.d/elasticsearch start"
   stop  program = "/etc/init.d/elasticsearch stop"
